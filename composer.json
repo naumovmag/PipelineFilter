@@ -3,7 +3,6 @@
     "description": "Library for using the pipeline data filtering pattern in models",
     "type": "library",
     "require": {
-        "illuminate/database": "^v9.52.16",
         "php": "^8.0"
     },
     "minimum-stability": "dev",
