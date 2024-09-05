@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PipelineFilter\Core\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use InvalidArgumentException;
 use PipelineFilter\Core\Filters\FilterPipelineInterface;
 
 /**
@@ -31,10 +32,16 @@ trait HasPipelineFilter
     {
         foreach ($filters as $filter) {
             $filterObject = new $filter();
+
             /** @var FilterPipelineInterface $filter */
             if ($filterObject instanceof FilterPipelineInterface) {
                 $builder = $filterObject->apply($builder, $dto);
+                continue;
             }
+
+            throw new InvalidArgumentException(
+                sprintf('Filter %s must implement FilterPipelineInterface.', get_class($filterObject))
+            );
         }
 
         return $builder;
