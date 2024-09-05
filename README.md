@@ -20,7 +20,7 @@ composer require naumov-adata/pipeline-filter
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Naumov\PipelineFilter\Traits\HasPipelineFilter;
+use App\Traits\HasPipelineFilter;
 
 final class YourModel extends Model
 {
