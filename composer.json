@@ -9,11 +9,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "proprietary",
-    "autoload": {
-        "psr-4": {
-            "Naumov\\PipelineFilter\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "naumov",
