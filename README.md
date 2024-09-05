@@ -20,7 +20,7 @@ composer require naumov-adata/pipeline-filter
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\HasPipelineFilter;
+use PipelineFilter\Core\Traits\HasPipelineFilter;
 
 final class YourModel extends Model
 {
@@ -28,8 +28,43 @@ final class YourModel extends Model
 
     // Другие методы и свойства модели
 }
+```
 
-// Пример использования фильтров
+Пример фильтра
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace PipelineFilter\Core\Filters\Pipelines;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use PipelineFilter\Core\Filters\FilterPipelineInterface;
+
+/**
+ * Class ExampleFilter
+ */
+class ExampleFilter implements FilterPipelineInterface
+{
+    /**
+     * @param Builder $builder
+     * @param mixed $dto
+     *
+     * @return Builder
+     */
+    public static function apply(Builder $builder, mixed $dto): Builder
+    {
+        /** @var Model|Builder $builder */
+        return true
+            ? $builder->where('name', $dto->name)
+            : $builder;
+    }
+}
+```
+
+Пример использования фильтров
+```php
 $dto = new YourDataTransferObject(); // Создайте ваш DTO
 
 $results = YourModel::pipelineFilter([
