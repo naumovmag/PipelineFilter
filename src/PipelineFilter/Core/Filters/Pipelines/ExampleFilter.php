@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PipelineFilter\App\Core\Filters\Pipelines;
+namespace PipelineFilter\Core\Filters\Pipelines;
 
-use App\Core\Filters\FilterPipelineInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use PipelineFilter\Core\Filters\FilterPipelineInterface;
 
 /**
  * Class ExampleFilter

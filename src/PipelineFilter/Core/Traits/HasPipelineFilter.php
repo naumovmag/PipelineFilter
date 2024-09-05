@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PipelineFilter\App\Traits;
+namespace PipelineFilter\Core\Traits;
 
-use App\Core\Filters\FilterPipelineInterface;
 use Illuminate\Database\Eloquent\Builder;
+use PipelineFilter\Core\Filters\FilterPipelineInterface;
 
 /**
  * Trait HasPipelineFilter
