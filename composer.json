@@ -6,7 +6,7 @@
         "illuminate/database": "^11.22",
         "php": "^8.0"
     },
-    "license": "no",
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "Naumov\\PipelineFilter\\": "src/"
