@@ -1,0 +1,21 @@
+{
+    "name": "naumov/pipeline-filter",
+    "description": "Library for using the pipeline data filtering pattern in models",
+    "type": "library",
+    "require": {
+        "illuminate/database": "^11.22",
+        "php": "^8.0"
+    },
+    "license": "no",
+    "autoload": {
+        "psr-4": {
+            "Naumov\\PipelineFilter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "naumov",
+            "email": "naumov_@mail.ru"
+        }
+    ]
+}
