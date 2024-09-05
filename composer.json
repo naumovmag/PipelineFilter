@@ -1,5 +1,5 @@
 {
-    "name": "naumov/pipeline-filter",
+    "name": "naumov-adata/pipeline-filter",
     "description": "Library for using the pipeline data filtering pattern in models",
     "type": "library",
     "require": {
