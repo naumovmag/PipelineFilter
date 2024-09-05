@@ -3,12 +3,16 @@
     "description": "Library for using the pipeline data filtering pattern in models",
     "type": "library",
     "require": {
-        "illuminate/database": "^11.22",
         "php": "^8.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Naumov\\PipelineFilter\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "naumov",
