@@ -7,7 +7,7 @@ Library for using the pipeline data filtering pattern in models.
 Для установки библиотеки выполните следующую команду:
 
 ```bash
-composer require naumov/pipeline-filter
+composer require naumov-adata/pipeline-filter
 ```
 
 ## Использование
