@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Filters\Pipelines;
+namespace PipelineFilter\App\Core\Filters\Pipelines;
 
 use App\Core\Filters\FilterPipelineInterface;
 use Illuminate\Database\Eloquent\Builder;
