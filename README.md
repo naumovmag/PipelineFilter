@@ -32,7 +32,7 @@ final class YourModel extends Model
 // Пример использования фильтров
 $dto = new YourDataTransferObject(); // Создайте ваш DTO
 
-$results = YourModel::filter([
+$results = YourModel::pipelineFilter([
     AccessFilter::class,
     WithCompaniesFilter::class,
     FavoriteAccessFilter::class,

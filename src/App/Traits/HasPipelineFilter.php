@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
  *
  * The trait must be used in the model in which pipeline filtering will occur
  *
- * @method static Builder filter(array $filters, mixed $dto)
+ * @method static Builder pipelineFilter(array $filters, mixed $dto)
  */
 trait HasPipelineFilter
 {
@@ -27,7 +27,7 @@ trait HasPipelineFilter
      *
      * @return Builder
      */
-    public function scopeFilter(Builder $builder, array $filters, mixed $dto): Builder
+    public function scopePipelineFilter(Builder $builder, array $filters, mixed $dto): Builder
     {
         foreach ($filters as $filter) {
             $filterObject = new $filter();
