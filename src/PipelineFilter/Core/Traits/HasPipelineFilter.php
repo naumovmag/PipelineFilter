@@ -6,6 +6,7 @@ namespace PipelineFilter\Core\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use InvalidArgumentException;
+use PipelineFilter\Core\Builder\CachedModelBuilder;
 use PipelineFilter\Core\Filters\FilterPipelineInterface;
 
 /**
@@ -45,5 +46,17 @@ trait HasPipelineFilter
         }
 
         return $builder;
+    }
+
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param $query
+     *
+     * @return CachedModelBuilder
+     */
+    public function newEloquentBuilder($query): CachedModelBuilder
+    {
+        return new CachedModelBuilder($query);
     }
 }
