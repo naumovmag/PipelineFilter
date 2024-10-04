@@ -48,6 +48,37 @@ final class CachedModelBuilder extends Builder
     }
 
     /**
+     * Custom paginate method with caching functionality.
+     *
+     * This method attempts to retrieve the paginated results of the query from the cache.
+     * If the cache does not have the results, it will execute the query, cache the results if they are not empty, and return them.
+     *
+     * @param int $perPage Number of results per page
+     * @param array|string $columns Columns to be selected in the query
+     * @param string $pageName The name of the pagination parameter
+     * @param int|null $page The current page number
+     *
+     */
+    public function paginateWithCache($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    {
+        $cacheKey = $this->getCacheKey() . "-page-$page-$perPage";
+
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey);
+        }
+
+        $paginate = parent::paginate($perPage, $columns, $pageName, $page);
+
+        if ($paginate->isNotEmpty()) {
+            return Cache::remember($cacheKey, now()->addSeconds(self::CACHING_SECONDS), function () use ($perPage, $columns, $pageName, $page) {
+                return parent::paginate($perPage, $columns, $pageName, $page);
+            });
+        }
+
+        return $paginate;
+    }
+
+    /**
      * Generate a cache key for the current query.
      *
      * This method generates a unique cache key by combining the class name and an MD5 hash
