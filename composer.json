@@ -3,7 +3,7 @@
     "description": "Library for using the pipeline data filtering pattern in models",
     "type": "library",
     "require": {
-        "php": "^8.0"
+        "php": "^8.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
